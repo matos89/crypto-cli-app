@@ -7,6 +7,7 @@ class Crypto::Scraper
       cryptos[:name] = crypto.css("td.no-wrap.currency-name a")[1].text
       cryptos[:symbol] = crypto.css("td.no-wrap.currency-name a")[0].text
       cryptos[:price] = crypto.css("td.no-wrap.text-right a")[0].text
+      cryptos[:volume] = crypto.css("td.no-wrap.text-right a")[1].text
       cryptos
     end
   end
