@@ -16,6 +16,15 @@ class Crypto::CLI
     puts "Price: #{coins[input-1][:price]}"
     puts "Volume: #{coins[input-1][:volume]}"
     puts "----------------------"
+    puts "Do you want to look up another coin? (y/n)"
+    puts "----------------------"
+    input = gets.strip.downcase
+    puts "----------------------"
+    if input == "y"
+      self.start
+    else
+      puts "Crypto is unstable, check back in a minute!"
+    end
   end
 
 end
