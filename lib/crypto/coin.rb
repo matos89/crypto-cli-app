@@ -14,4 +14,10 @@ class Crypto::Coin
     @@all << self
   end
 
+  def self.new_from_scraper
+    self.coins.each do |coin|
+      coin = Coin.new(coin[:name], coin[:symbol], coin[:price])
+    end
+  end
+
 end
