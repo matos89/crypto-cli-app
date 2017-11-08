@@ -4,7 +4,7 @@ class Crypto::Coin
   @@all = []
 
   def self.coins
-    coins = Crypto::Scraper.scrape_index_page
+    @@all
   end
 
   def initialize(name = nil, symbol = nil, price = nil, volume = nil)
@@ -15,10 +15,7 @@ class Crypto::Coin
     @@all << self
   end
 
-  def self.new_from_scraper
-    self.coins.each do |coin|
-      coin = Crypto::Coin.new(coin[:name], coin[:symbol], coin[:price], coin[:volume])
-    end
+  def self.price_above(number)
+    self.coins.select { |coin| coin.price.delete("$").to_f > number.to_i }
   end
-
 end
